@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ResumeInfoContext } from '../../../../../../../context/ResumeInfoContext';
-import dummyData, { ResumeData } from '../../../../../../data/dummyData';
+import { ResumeData } from '../../../../../../data/dummyData';
 import ViewResume from './ViewResume';
 
 

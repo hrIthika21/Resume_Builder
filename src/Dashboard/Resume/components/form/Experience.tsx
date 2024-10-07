@@ -6,7 +6,6 @@ import { ResumeInfoContext } from "../../../../context/ResumeInfoContext";
 
 interface ExperienceProps {
     resumeId: string;
-    enabledNext: (value: boolean) => void;
 }
 
 interface FormField {
@@ -25,10 +24,16 @@ const formField: FormField = {
     description: '',
 };
 
-const Experience= ({ resumeId, enabledNext }: ExperienceProps) => {
+const Experience= ({ resumeId }: ExperienceProps) => {
 
     const[experience,setExperience] = useState<FormField[]>([formField])
-    const {resumeInfo,setResumeInfo} = useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
+
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+    
+    const { resumeInfo, setResumeInfo } = context;
 
     const handleRichTextEditor = (value: string, name: string, index: number) => {
         const newEntries = experience.slice(); 
@@ -98,23 +103,24 @@ const Experience= ({ resumeId, enabledNext }: ExperienceProps) => {
                     <form onSubmit={onSave}>
                         <div>
                             {experience.map((item,index)=>(
-                                <div key = {index}>
+                                <div >
                                     <div className="grid grid-cols-2 mt-5 gap-3">
                                         <div>
                                             <label className="text-xs ">POSITION</label>
-                                            <Input name='position'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                            <Input name='position'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={item?.position}/>
                                         </div>
                                         <div>
                                             <label className="text-xs ">ORGANISATION</label>
-                                            <Input name='company'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                            <Input name='company'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={item?.company}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs ">DURATION</label>
-                                            <Input name='duration' placeholder="FOR EXAMPLE: June 2023 - August 2023" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                            <Input name='duration' placeholder="FOR EXAMPLE: June 2023 - August 2023" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={item?.duration}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs ">DESCRIBE YOUR WORK</label>
                                             <RichTextEditor
+                                                value={item?.description}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'description', index)} 
                                             />
                                         </div>
@@ -142,19 +148,20 @@ const Experience= ({ resumeId, enabledNext }: ExperienceProps) => {
                     <form onSubmit={onSave}>
                         <div>
                             {experience.map((exp,index)=>(
-                                <div key = {index}>
+                                <div>
                                     <div className="grid grid-cols-2 mt-5 gap-3">
                                         <div>
                                             <label className="text-xs">POSITION</label>
-                                            <Input name='position'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                            <Input name='position'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={exp?.position}/>
                                         </div>
                                         <div>
                                             <label className="text-xs">DURATION</label>
-                                            <Input name='duration' placeholder="FOR EXAMPLE: June 2023 - August 2023" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                            <Input name='duration' placeholder="FOR EXAMPLE: June 2023 - August 2023" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={exp?.duration}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs col-span-2">DESCRIBE YOUR WORK</label>
                                             <RichTextEditor
+                                                value={exp?.description}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'description', index)} // Pass the new value directly
                                             />
                                         </div>
@@ -181,23 +188,24 @@ const Experience= ({ resumeId, enabledNext }: ExperienceProps) => {
                         <form onSubmit={onSave}>
                             <div>
                                 {experience.map((item,index)=>(
-                                    <div key = {index}>
+                                    <div >
                                         <div className="grid grid-cols-2 mt-5 gap-3">
                                             <div>
                                                 <label className="text-xs ">POSITION</label>
-                                                <Input name='position'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                                <Input name='position'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={item?.position}/>
                                             </div>
                                             <div>
                                                 <label className="text-xs ">ORGANISATION</label>
-                                                <Input name='company'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                                <Input name='company'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={item?.company}/>
                                             </div>
                                             <div className="col-span-2">
                                                 <label className="text-xs ">DURATION</label>
-                                                <Input name='duration' placeholder="FOR EXAMPLE: June 2023 - August 2023" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)}/>
+                                                <Input name='duration' placeholder="FOR EXAMPLE: June 2023 - August 2023" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleChange(index,e)} defaultValue={item?.duration}/>
                                             </div>
                                             <div className="col-span-2">
                                                 <label className="text-xs ">DESCRIBE YOUR WORK</label>
                                                 <RichTextEditor
+                                                    value={item?.description}
                                                     onRichEditorChange={(value: string) => handleRichTextEditor(value, 'description', index)} 
                                                 />
                                             </div>

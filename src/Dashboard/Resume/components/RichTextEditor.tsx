@@ -16,9 +16,11 @@ import {
     HtmlButton,
     Separator,
     Toolbar,
+    ContentEditableEvent
   } from 'react-simple-wysiwyg';
 
 interface RichTextEditorProps {
+    value?: string;
     onRichEditorChange: (value: string) => void; 
 }
   
@@ -27,7 +29,7 @@ const RichTextEditor : React.FC<RichTextEditorProps>= ({onRichEditorChange})=>{
   return (
     <div>
         <EditorProvider>
-            <Editor value={value} onChange={(e : React.ChangeEvent<HTMLInputElement>)=>{
+            <Editor value={value} onChange={(e: ContentEditableEvent)=>{
                 const newValue = e.target.value;
                 setValue(newValue)
                 onRichEditorChange(newValue)

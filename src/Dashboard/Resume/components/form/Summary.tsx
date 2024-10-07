@@ -9,19 +9,26 @@ export interface SummaryDetailProp{
 }
 
 export interface SummaryProp{
-    summary? : string
+    summary : string
 }
 
 const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
 
 
-    const {resumeInfo,setResumeInfo}=useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
+
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+    
+    const { resumeInfo, setResumeInfo } = context;
+
     const [summary,setSummary] = useState<SummaryProp | null>(null)
 
     useEffect(()=>{
         summary&&setResumeInfo({
             ...resumeInfo,
-            summary:summary
+            summary: resumeInfo?.summary
         })
     },[summary])
 
@@ -54,9 +61,9 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
                     <form onSubmit={onSave}>
                         <div >
                             <Textarea 
-                            required  value={summary}
-                            defaultValue={summary?summary:resumeInfo?.summery}
-                            onChange={(e : React.ChangeEvent<HTMLInputElement>)=>setSummary(e.target.value)} 
+                            required  value={summary? resumeInfo?.summary : ""}
+                            defaultValue={resumeInfo?.summary}
+                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary({summary: e.target.value})} 
                             name="summary"/>
                         </div>
                         <div className="mt-4 flex justify-end">
@@ -73,9 +80,9 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
                     <p className="font-thin text-md">Add Summary for your job title</p>
                     <form onSubmit={onSave}>
                         <div>
-                            <Textarea required  value={summary}
-                            defaultValue={summary?summary:resumeInfo?.summery}
-                            onChange={(e : React.ChangeEvent<HTMLInputElement>)=>setSummary(e.target.value)} 
+                            <Textarea required  value={summary? resumeInfo?.summary : ""}
+                            defaultValue={resumeInfo?.summary}
+                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary({summary: e.target.value})}  
                             name="summary"/>
                         </div>
                         <div className="mt-4 flex justify-end">
@@ -92,9 +99,9 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
                     <p className="font-thin text-md">Add Summary for your job title</p>
                     <form onSubmit={onSave}>
                         <div>
-                            <Textarea required  value={summary}
-                            defaultValue={summary?summary:resumeInfo?.summery}
-                            onChange={(e : React.ChangeEvent<HTMLInputElement>)=>setSummary(e.target.value)} 
+                            <Textarea required  value={summary? resumeInfo?.summary : ""}
+                            defaultValue={resumeInfo?.summary}
+                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary({summary: e.target.value})} 
                             name="summary"/>
                         </div>
                         <div className="mt-4 flex justify-end">

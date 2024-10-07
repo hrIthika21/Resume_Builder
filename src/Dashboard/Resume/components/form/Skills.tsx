@@ -25,7 +25,14 @@ const Skills=({resumeId }: SkillsProp) => {
 
 
     const [skills,setSkills] = useState<SkillField[]>([skillField])
-    const {resumeInfo,setResumeInfo} = useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
+
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+    
+    const { resumeInfo, setResumeInfo } = context;
+
 
     const handleRichTextEditor = (value: string, name: string, index: number) => {
         const newEntries = skills.slice(); 
@@ -98,11 +105,12 @@ const Skills=({resumeId }: SkillsProp) => {
                                     <div className="grid grid-cols-2 mt-5 gap-3">
                                         <div>
                                             <label className="text-xs ">CATEGORY</label>
-                                            <Input name='category'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleSkillChange(index,e)}/>
+                                            <Input name='category'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleSkillChange(index,e)} defaultValue={skills?.category}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs ">DESCRIBE YOUR WORK</label>
                                             <RichTextEditor
+                                                value={skills?.list}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'list', index)} 
                                             />
                                         </div>
@@ -134,6 +142,7 @@ const Skills=({resumeId }: SkillsProp) => {
                                         <div className="col-span-2">
                                             <label className="text-xs ">LIST YOUR SKILLS</label>
                                             <RichTextEditor
+                                                 value={skills?.list}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'list', index)} 
                                             />
                                         </div>
@@ -164,11 +173,12 @@ const Skills=({resumeId }: SkillsProp) => {
                                     <div className="grid grid-cols-2 mt-5 gap-3">
                                         <div>
                                             <label className="text-xs ">CATEGORY</label>
-                                            <Input name='category'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleSkillChange(index,e)}/>
+                                            <Input name='category'required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleSkillChange(index,e)} defaultValue={skills?.category}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs ">DESCRIBE YOUR WORK</label>
                                             <RichTextEditor
+                                                value={skills?.list}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'list', index)} 
                                             />
                                         </div>

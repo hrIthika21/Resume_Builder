@@ -25,8 +25,13 @@ const awardsandachievementsField: AwardsAndAchievementsField  = {
 const Awards = ({resumeId} : AwardProps) => {
 
     const [awardsAndAchievements,setAwardsAndAchievements] = useState<AwardsAndAchievementsField []>([awardsandachievementsField])
-    const {resumeInfo,setResumeInfo} =useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
 
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+
+const { resumeInfo, setResumeInfo } = context;
     const handleAwardsChange = (index : number, e : React.ChangeEvent<HTMLInputElement>) =>{
         const newEntries =awardsAndAchievements.slice();
         const {name,value}=e.target;
@@ -98,11 +103,15 @@ const Awards = ({resumeId} : AwardProps) => {
                                     <div className="grid grid-cols-2 mt-5 gap-3">
                                         <div>
                                             <label className="text-xs">TITLE</label>
-                                            <Input name='title' required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleAwardsChange(index,e)}/>
+                                            <Input name='title' 
+                                            required 
+                                            onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleAwardsChange(index,e)}
+                                            defaultValue={awardsAndAchievements?.title}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs ">DESCRIBE YOUR WORK</label>
                                             <RichTextEditor
+                                                value={awardsAndAchievements?.description}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'description', index)} 
                                             />
                                         </div>
@@ -135,7 +144,10 @@ const Awards = ({resumeId} : AwardProps) => {
 
                                     <div>
                                         <label className="text-xs">TITLE</label>
-                                        <Input name='title' required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleAwardsChange(index,e)}/>
+                                        <Input name='title' 
+                                        required 
+                                        onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleAwardsChange(index,e)}
+                                        defaultValue={awardsAndAchievements?.title}/>
                                     </div>
                                 </div>
                                 <div className="flex justify-between col-span-2 mt-4">
@@ -164,11 +176,15 @@ const Awards = ({resumeId} : AwardProps) => {
                                     <div className="grid grid-cols-2 mt-5 gap-3">
                                         <div>
                                             <label className="text-xs">TITLE</label>
-                                            <Input name='title' required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleAwardsChange(index,e)}/>
+                                            <Input name='title' 
+                                            required 
+                                            onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleAwardsChange(index,e)}
+                                            defaultValue={awardsAndAchievements?.title}/>
                                         </div>
                                         <div className="col-span-2">
                                             <label className="text-xs ">DESCRIBE YOUR WORK</label>
                                             <RichTextEditor
+                                            value={awardsAndAchievements?.description}
                                                 onRichEditorChange={(value: string) => handleRichTextEditor(value, 'description', index)} 
                                             />
                                         </div>

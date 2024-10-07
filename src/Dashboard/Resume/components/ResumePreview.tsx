@@ -8,7 +8,13 @@ import { useParams } from "react-router-dom";
 
 const ResumePreview : React.FC = () => {
 
-    const {resumeInfo,setResumeInfo}=useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
+
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+    
+    const { resumeInfo} = context;
     const {resumeId} =useParams<{resumeId : string}>()
     
     return ( 

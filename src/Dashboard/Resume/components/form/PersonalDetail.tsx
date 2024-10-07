@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ResumeInfoContext } from "../../../../context/ResumeInfoContext";
 import { Input } from "../../../../components/ui/input";
 import { Button } from "../../../../components/ui/button";
-import { ResumeData } from "../../../data/dummyData";
+
 
 export interface PersonalDetailProp{
     resumeId : string;
@@ -16,7 +16,14 @@ export interface PersonalDetailProp{
 const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) => {
 
 
-    const {resumeInfo,setResumeInfo} =useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
+
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+    
+    const { resumeInfo, setResumeInfo } = context;
+
     const [formData,setFormData] = useState({
         firstname: '',
         lastname: '',

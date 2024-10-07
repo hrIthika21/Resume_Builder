@@ -28,7 +28,13 @@ const educationField : EducationField = {
 const Education : React.FC<EducationProp>= ({resumeId}) =>{
 
     const[education,setEducation] = useState<EducationField[]>([educationField])
-    const {resumeInfo,setResumeInfo}= useContext(ResumeInfoContext)
+    const context = useContext(ResumeInfoContext);
+
+    if (!context) {
+        throw new Error('ResumeInfoContext must be used within a ResumeInfoProvider');
+    }
+    
+    const { resumeInfo, setResumeInfo } = context;
 
     const handleEducationChange = (index : number, e : React.ChangeEvent<HTMLInputElement>)=>{
         const newEntries = education.slice();
@@ -61,7 +67,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
 
     }
 
-    const onSave=(e : React.FormEvent<HTMLFormElement>)=>{
+    const onSave=(e : React.MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault();
         try {
             const existingData = localStorage.getItem(`resume_${resumeId}`);
@@ -94,19 +100,19 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
                                 <div className='grid grid-cols-2 gap-2 mt-4'>
                                     <div>
                                         <label className='text-xs'> YEAR OF STUDY</label>
-                                        <Input name= "year" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                        <Input name= "year" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.year}/>
                                     </div>
                                     <div>
                                         <label className='text-xs'>DEGREE</label>
-                                        <Input required name = "degree" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                        <Input required name = "degree" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.degree}/>
                                     </div>
                                     <div>
                                         <label className='text-xs'>INSTITUTE</label>
-                                        <Input required name="institute" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                        <Input required name="institute" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.institute}/>
                                     </div>
                                     <div>
                                         <label className='text-xs'>CGPA/MARKS</label>
-                                        <Input required name="cgpamarks" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                        <Input required name="cgpamarks" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.cgpamarks}/>
                                     </div>
                                 </div>
                                     <div className="flex justify-between col-span-2 mt-4">
@@ -114,7 +120,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
                                             <Button variant='outline' onClick={AddNewEducation}> + Add Education</Button>
                                             <Button variant='outline' onClick={RemoveEducation}> - Remove</Button>
                                         </div>
-                                        <Button onClick={(e : React.FormEvent<HTMLFormElement>)=>onSave(e)}>Save</Button>
+                                        <Button onClick={(e : React.MouseEvent<HTMLButtonElement>)=>onSave(e)}>Save</Button>
                                         
                                     </div>
                             </div>
@@ -134,19 +140,19 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
                             <div className='grid grid-cols-2 gap-2 mt-4'>
                                 <div>
                                     <label className='text-xs'> YEAR OF STUDY</label>
-                                    <Input name= "year" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input name= "year" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.year}/>
                                 </div>
                                 <div>
                                     <label className='text-xs'>DEGREE</label>
-                                    <Input required name = "degree" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input required name = "degree" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.degree}/>
                                 </div>
                                 <div>
                                     <label className='text-xs'>INSTITUTE</label>
-                                    <Input required name="institute" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input required name="institute" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.institute}/>
                                 </div>
                                 <div>
                                     <label className='text-xs'>CGPA/MARKS</label>
-                                    <Input required name="cgpamarks" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input required name="cgpamarks" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.cgpamarks}/>
                                 </div>
                             </div>
                                 <div className="flex justify-between col-span-2 mt-4">
@@ -154,7 +160,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
                                         <Button variant='outline' onClick={AddNewEducation}> + Add Education</Button>
                                         <Button variant='outline' onClick={RemoveEducation}> - Remove</Button>
                                     </div>
-                                    <Button onClick={()=>onSave()}>Save</Button>
+                                    <Button onClick={(e : React.MouseEvent<HTMLButtonElement>)=>onSave(e)}>Save</Button>
                                     
                                 </div>
                         </div>
@@ -174,19 +180,19 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
                             <div className='grid grid-cols-2 gap-2 mt-4'>
                                 <div>
                                     <label className='text-xs'> YEAR OF STUDY</label>
-                                    <Input name= "year" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input name= "year" required onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.year}/>
                                 </div>
                                 <div>
                                     <label className='text-xs'>DEGREE</label>
-                                    <Input required name = "degree" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input required name = "degree" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.degree}/>
                                 </div>
                                 <div>
                                     <label className='text-xs'>INSTITUTE</label>
-                                    <Input required name="institute" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input required name="institute" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.institute}/>
                                 </div>
                                 <div>
                                     <label className='text-xs'>CGPA/MARKS</label>
-                                    <Input required name="cgpamarks" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)}/>
+                                    <Input required name="cgpamarks" onChange={(e : React.ChangeEvent<HTMLInputElement>)=>handleEducationChange(index,e)} defaultValue={item?.cgpamarks}/>
                                 </div>
                             </div>
                                 <div className="flex justify-between col-span-2 mt-4">
@@ -194,7 +200,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
                                         <Button variant='outline' onClick={AddNewEducation}> + Add Education</Button>
                                         <Button variant='outline' onClick={RemoveEducation}> - Remove</Button>
                                     </div>
-                                    <Button onClick={()=>onSave()}>Save</Button>
+                                    <Button onClick={(e : React.MouseEvent<HTMLButtonElement>)=>onSave(e)}>Save</Button>
                                     
                                 </div>
                         </div>
