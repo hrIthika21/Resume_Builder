@@ -3,8 +3,6 @@ import { Button } from '../../../../../../../components/ui/button';
 import { ResumeData } from '../../../../../../data/dummyData';
 import { useParams } from 'react-router-dom';
 import '../../../../../../../resume_builder.css';
-import { RWebShare } from 'react-web-share'
-
 
 
 const ViewResume: React.FC = () =>{
@@ -16,7 +14,7 @@ const ViewResume: React.FC = () =>{
 
     useEffect(() => {
         GetResumeInfo();
-    }, [resumeId]);
+    }, [resumeId,resumeInfo]);
 
     const GetResumeInfo = () => {
         const storedData = localStorage.getItem(`resume_${resumeId}`); // Get the stored data
@@ -46,19 +44,8 @@ const ViewResume: React.FC = () =>{
                     <div className='my-10 mx-10 md:mx-20 lg:mx-30' id="no-print"> 
                         <h2 className='text-center text-xl font-semibold'> Your Resume is complete</h2>
                         <p className='text-center text-gray-400'>Do you wish to download it?</p>
-                        <div className='flex justify-between lg:px-30 md:px-5  sm:px-30 my-10'>
-                            <Button onClick={HandleDownload}>Download</Button>
-                            <RWebShare
-                                data={{
-                                text: "This is my resume, click on the given URL to view it",
-                                url: "http://doneresume.netlify.app/dashboard/resume/" + resumeId + "/Edit",
-                                title: resumeInfo?.firstname +" "+ resumeInfo?.lastname,
-                                }}
-                                onClick={() => console.log("shared successfully!")}
-                            >
-                                <Button>Share</Button>
-                            </RWebShare>
-                            
+                        <div className='flex justify-center lg:px-30 md:px-5  sm:px-30 my-10'>
+                            <Button onClick={HandleDownload}>Download</Button>   
                         </div>
                     </div>
         )
@@ -68,18 +55,9 @@ const ViewResume: React.FC = () =>{
                 <div className='my-10 mx-10 md:mx-20 lg:mx-30'> 
                     <h2 className='text-center text-xl font-semibold'> Your Resume is complete</h2>
                     <p className='text-center text-gray-400'>Do you wish to download it?</p>
-                    <div className='flex justify-between px-44 my-10'>
+                    <div className='flex justify-center lg:px-30 md:px-5  sm:px-30 my-10'>
                             <Button onClick={HandleDownload}>Download</Button>
-                            <RWebShare
-                                data={{
-                                text: "This is my resume, click on the given URL to view it",
-                                url: "http://doneresume.netlify.app/dashboard/resume/" + resumeId + "/Edit",
-                                title: resumeInfo?.firstname +" "+ resumeInfo?.lastname,
-                                }}
-                                onClick={() => console.log("shared successfully!")}
-                            >
-                                <Button>Share</Button>
-                            </RWebShare>       
+                                   
                         </div>
                 </div>
             
@@ -90,18 +68,9 @@ const ViewResume: React.FC = () =>{
                 <div className='my-10 mx-10 md:mx-20 lg:mx-30'> 
                     <h2 className='text-center text-xl font-semibold'> Your Resume is complete</h2>
                     <p className='text-center text-gray-400'>Do you wish to download it?</p>
-                    <div className='flex justify-between px-44 my-10'>
+                    <div className='flex justify-center lg:px-30 md:px-5  sm:px-30 my-10'>
                             <Button onClick={HandleDownload}>Download</Button>
-                            <RWebShare
-                                data={{
-                                text: "This is my resume, click on the given URL to view it",
-                                url: "http://doneresume.netlify.app/dashboard/resume/" + resumeId + "/Edit",
-                                title: resumeInfo?.firstname +" "+ resumeInfo?.lastname,
-                                }}
-                                onClick={() => console.log("shared successfully!")}
-                            >
-                                <Button>Share</Button>
-                            </RWebShare>
+                            
                             
                         </div>
                 </div>
