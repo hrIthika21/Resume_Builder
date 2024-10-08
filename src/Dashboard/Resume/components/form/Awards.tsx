@@ -6,13 +6,13 @@ import { Button } from '../../../../components/ui/button';
 
 
 interface AwardProps {
-    resumeId : string
+    resumeId? : string
 }
 
 interface AwardsAndAchievementsField {
-    id :number;
-    title : string;
-    description : string;
+    id ?:number;
+    title? : string;
+    description? : string;
 }
 
 const awardsandachievementsField: AwardsAndAchievementsField  = {
@@ -59,7 +59,7 @@ const { resumeInfo, setResumeInfo } = context;
     },[awardsAndAchievements])
 
     useEffect(()=>{
-        resumeInfo&&setAwardsAndAchievements(resumeInfo?.awardsAndAchievements)
+        resumeInfo&&setAwardsAndAchievements(resumeInfo?.awardsAndAchievements ?? [])
       },[])
 
     const AddNewAward = ()=>{

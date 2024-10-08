@@ -1,26 +1,26 @@
 
 export interface Education {
-    id: number;
-    year: number;
-    degree: string;
-    institute: string;
-    cgpamarks: string;
+    id?: number;
+    year?: number;
+    degree?: string;
+    institute?: string;
+    cgpamarks?: string;
   }
 
   
 export interface Skill {
-    id : number;
-    category: string;
-    list: string;
+    id ?: number;
+    category?: string;
+    list?: string;
   }
   
   
 export interface Experience {
-    id : number;
-    position: string;
-    company: string;
-    duration: string;
-    description: string;
+    id ?: number;
+    position?: string;
+    company?: string;
+    duration?: string;
+    description?: string;
   }
   
 export interface Responsibility {
@@ -30,47 +30,47 @@ export interface Responsibility {
   }
 
 export interface Project {
-    id : number;
-    projectName: string;
-    description:string;
-    technologies: string;
-    duration : string;
+    id?: number;
+    projectName?: string;
+    description?:string;
+    technologies?: string;
+    duration? : string;
 }
   
 export interface Award {
-    id: number;
-    title: string;
-    description: string;
+    id?: number;
+    title?: string;
+    description?: string;
   }
   
 export interface ExtraCurricular {
-    id: number;
-    activity: string;
-    description: string;
+    id?: number;
+    activity?: string;
+    description?: string;
   }
   
 export interface ResumeData {
-    firstname: string;
-    lastname: string;
-    rollno: string;
-    department: string;
-    contact: string;
-    email: string;
-    linkedln : string;
-    address : string;
-    dob : string;
-    jee : string;
-    img : string;
-    summary: string;
-    languages : string[];
-    education: Education[];
-    skills: Skill[];
-    coursework: { id: number; title: string; description: string }[];
-    experiences: Experience[];
-    positionOfResponsibility: Responsibility[];
-    awardsAndAchievements: Award[];
-    projects : Project[];
-    extraCurricularActivities: ExtraCurricular[];
+    firstname?: string;
+    lastname?: string;
+    rollno?: string;
+    department?: string;
+    contact?: string;
+    email?: string;
+    linkedln?: string;
+    address?: string;
+    dob?: string;
+    jee?: string;
+    img?: string;
+    summary?: string;
+    languages?: string[];
+    education?: Education[];
+    skills?: Skill[];
+    coursework?: { id?: number; title?: string; description?: string }[];
+    experiences?: Experience[];
+    positionOfResponsibility?: Responsibility[];
+    awardsAndAchievements?: Award[];
+    projects?: Project[];
+    extraCurricularActivities?: ExtraCurricular[];
   }
   
 

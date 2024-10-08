@@ -12,11 +12,11 @@ interface ProjectProp{
 }
 
 interface ProjectField {
-    id : number;
-    projectName: string;
-    duration: string;
-    technologies: string;
-    description: string;
+    id? : number;
+    projectName?: string;
+    duration?: string;
+    technologies?: string;
+    description?: string;
 }
 
 const projectField: ProjectField = {
@@ -60,12 +60,12 @@ const Projects =({resumeId} : ProjectProp) => {
     useEffect(()=>{
         setResumeInfo({
             ...resumeInfo,
-            projects : projects
+            projects : projects 
         })
     },[projects])
 
     useEffect(()=>{
-        resumeInfo&&setProjects(resumeInfo?.projects)
+        resumeInfo&&setProjects(resumeInfo?.projects ?? [])
     },[])
 
     const AddNewProject = ()=>{

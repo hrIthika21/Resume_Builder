@@ -15,7 +15,6 @@
     position: absolute; /* Remove it from normal flow for printing */
     left: 0;
     top: 0;
-    
   }
 
   #print-preview{
@@ -37,6 +36,8 @@
     margin: 0;
     padding: 0;
     box-shadow: none;
+    font-size: 12pt;
+    line-height: 1.5;
   }
 
 }

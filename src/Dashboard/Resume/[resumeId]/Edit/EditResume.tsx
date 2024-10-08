@@ -16,7 +16,7 @@ interface RouteParams {
 const EditResume : React.FC = () => {
     const params=useParams<RouteParams>()
 
-    const [resumeInfo, setResumeInfo] = useState<ResumeData>(dummyData);
+    const [resumeInfo, setResumeInfo] = useState<ResumeData | null>(dummyData);
 
     useEffect(()=>{
         if(params.resumeId){

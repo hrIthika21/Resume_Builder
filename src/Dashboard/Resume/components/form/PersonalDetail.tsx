@@ -9,10 +9,6 @@ export interface PersonalDetailProp{
     enabledNext : (value : boolean) => void;
 }
 
-
-
-
-
 const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) => {
 
 
@@ -36,14 +32,15 @@ const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) =
         enabledNext(false)
         const {name,value} =e.target;
         
-        setFormData((formData)=>({
-            ...formData,
-            [name] :value
-        }))
-        setResumeInfo({
-            ...resumeInfo,
-            [name]:value
-        })
+            setFormData((formData)=>({
+                ...formData,
+                [name] : value ?? " "
+            }))
+            setResumeInfo({
+                ...resumeInfo,
+                [name] : value ?? ""
+            })
+       
     }
 
     const handleImageUpload = (e : React.ChangeEvent<HTMLInputElement>)=>{

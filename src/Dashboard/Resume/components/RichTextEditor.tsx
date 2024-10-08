@@ -17,7 +17,7 @@ import {
     Separator,
     Toolbar,
     ContentEditableEvent
-  } from 'react-simple-wysiwyg';
+} from 'react-simple-wysiwyg';
 
 interface RichTextEditorProps {
     value?: string;

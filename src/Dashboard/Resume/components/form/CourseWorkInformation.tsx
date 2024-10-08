@@ -11,9 +11,9 @@ interface CourseWorkInformationProps{
 }
 
 interface CourseWorkField {
-    id : number;
-    title : string;
-    description : string;
+    id? : number;
+    title? : string;
+    description? : string;
 }
 
 const courseworkField : CourseWorkField = {
@@ -61,7 +61,7 @@ const { resumeInfo, setResumeInfo } = context;
     },[coursework])
 
     useEffect(()=>{
-        resumeInfo&&setCourseWork(resumeInfo?.coursework)
+        resumeInfo&&setCourseWork(resumeInfo?.coursework ?? [])
       },[])
 
     const AddNewExperience = ()=>{

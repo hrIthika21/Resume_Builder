@@ -46,7 +46,7 @@ const ViewResume: React.FC = () =>{
                     <div className='my-10 mx-10 md:mx-20 lg:mx-30' id="no-print"> 
                         <h2 className='text-center text-xl font-semibold'> Your Resume is complete</h2>
                         <p className='text-center text-gray-400'>Do you wish to download it?</p>
-                        <div className='flex justify-between px-44 my-10'>
+                        <div className='flex justify-between lg:px-30 md:px-5  sm:px-30 my-10'>
                             <Button onClick={HandleDownload}>Download</Button>
                             <RWebShare
                                 data={{

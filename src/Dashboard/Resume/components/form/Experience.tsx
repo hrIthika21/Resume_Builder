@@ -9,11 +9,11 @@ interface ExperienceProps {
 }
 
 interface FormField {
-    id : number;
-    position: string;
-    duration: string;
-    company: string;
-    description: string;
+    id ?: number;
+    position?: string;
+    duration?: string;
+    company?: string;
+    description?: string;
 }
 
 const formField: FormField = {
@@ -61,10 +61,12 @@ const Experience= ({ resumeId }: ExperienceProps) => {
         })
     },[experience])
 
-    useEffect(()=>{
-        resumeInfo?.experiences.length>0&&setExperience(resumeInfo?.experiences)
-        
-    },[])
+    useEffect(() => {
+        if (resumeInfo?.experiences && resumeInfo.experiences.length > 0) {
+          setExperience(resumeInfo.experiences);
+        }
+      }, [resumeInfo]);
+      
     
 
     const AddNewExperience = ()=>{

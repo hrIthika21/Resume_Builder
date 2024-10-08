@@ -49,7 +49,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                     <div className="table-cell font-semibold border border-collapse border-black">CGPA/MARKS</div>
                                 </div>
                             </div>
-                            {resumeInfo.education.map((education,index)=>(
+                            {resumeInfo.education?.map((education,index)=>(
 
                                 <div className="table-row-group border border-collapse border-black">
                                 <div className="table-row">
@@ -70,13 +70,13 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             </div>
                         </div>
                     </div>
-                        {resumeInfo.coursework.map((coursework,index)=>
+                        {resumeInfo.coursework?.map((coursework,index)=>
                         (
                             <div>
                                 <ul className="list-disc">
                                     <li key={index} className="font-semibold text-lg mt-2">{coursework?.title}</li>
                                 </ul>
-                                <div dangerouslySetInnerHTML={{__html:coursework?.description}}/>           
+                                <div dangerouslySetInnerHTML={{__html:coursework?.description ?? ""}}/>           
                             </div>
                         ))}
 
@@ -104,11 +104,11 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         </div>
                     </div>
 
-                    {resumeInfo.skills.map((skills,index) =>
+                    {resumeInfo.skills?.map((skills,index) =>
                     (
                         <div className="">
                             <div key={index} className="text-lg mt-2 inline font-semibold" >{skills?.category} : </div>
-                            <div dangerouslySetInnerHTML={{__html:skills?.list}} className="inline"/>           
+                            <div dangerouslySetInnerHTML={{__html:skills?.list ?? ""}} className="inline"/>           
                         </div>
                     ))}
                         
@@ -122,7 +122,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         </div>
                     </div>
 
-                        {resumeInfo.experiences.map((experiences,index)=>
+                        {resumeInfo.experiences?.map((experiences,index)=>
                         (
                             <div key = {index}>
                                 <div className="flex flex-col">
@@ -131,7 +131,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                     </ul>
                                     <div className="font-semibold text-md">{experiences?.duration}</div>
                                 </div>
-                                <div dangerouslySetInnerHTML={{__html:experiences?.description}}/>                            
+                                <div dangerouslySetInnerHTML={{__html:experiences?.description ?? ""}}/>                            
                             </div>
                         ))}
                         
@@ -146,7 +146,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         </div>
                     </div>
 
-                        {resumeInfo.projects.map((projects,index)=>(
+                        {resumeInfo.projects?.map((projects,index)=>(
                             <div key ={index}>
                                 <div className="flex flex-col ">
                                     <ul className="list-disc">
@@ -156,11 +156,11 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                 </div>
                                 <div>
                                     <div className="font-semibold text-md inline">TECHNOLOGIES USED : </div>
-                                    <div dangerouslySetInnerHTML={{__html:projects?.technologies}} className="inline"/>  
+                                    <div dangerouslySetInnerHTML={{__html:projects?.technologies ?? ""}} className="inline"/>  
                                 </div>
                                 <div>
                                     <div className="font-semibold text-md inline">DESCRIPTION : </div>
-                                    <div dangerouslySetInnerHTML={{__html:projects?.description}} className="inline"/>  
+                                    <div dangerouslySetInnerHTML={{__html:projects?.description ?? ""}} className="inline"/>  
                                 </div>
                                 
                             </div>
@@ -177,7 +177,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         </div>
                     </div>
 
-                        {resumeInfo.awardsAndAchievements.map((awardsAndAchievements,index)=>(
+                        {resumeInfo.awardsAndAchievements?.map((awardsAndAchievements,index)=>(
                             <div key={index}>
                                 <ul className="list-disc inline">
                                 <li  className="inline font-semibold">{awardsAndAchievements?.title}</li>
@@ -197,7 +197,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         </div>
                     </div>
 
-                        {resumeInfo.extraCurricularActivities.map((extraCurricularActivities,index)=>
+                        {resumeInfo.extraCurricularActivities?.map((extraCurricularActivities,index)=>
                         (
                         <div key={index}>
                             <ul className="list-disc inline">
@@ -267,10 +267,10 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             </div>
                         </div>
                         <div className="grid grid-rows-3">
-                            {resumeInfo.skills.map((skills,index)=>(
+                            {resumeInfo.skills?.map((skills,index)=>(
                                 <div key={index}>
                                     <ul className="list-disc">
-                                        <li dangerouslySetInnerHTML={{__html:skills?.list}} />  
+                                        <li dangerouslySetInnerHTML={{__html:skills?.list ?? ""}} />  
                                     </ul>
                                 </div>
                             ))}
@@ -283,7 +283,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         <span className="underline underline-offset-8 decoration-dashed decoration-black ">PROFESSIONAL EXPERIENCE</span>
                         </div>
                        
-                            {resumeInfo.experiences.map((experiences,index)=>(
+                            {resumeInfo.experiences?.map((experiences,index)=>(
                                 <div>
                                     <div className="grid grid-cols-2 text-black bg-slate-100  p-1 tracking-widest font-bold ">
                                         <div key={index}>{experiences?.company}</div>
@@ -303,7 +303,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         <div className="relative text-sky-500 bg-slate-100 font-semibold mt-2 p-1 tracking-widest">
                             <span className="underline underline-offset-8 decoration-dashed decoration-black ">PROJECTS</span>
                         </div>
-                        {resumeInfo.projects.map((projects,index)=>(
+                        {resumeInfo.projects?.map((projects,index)=>(
                             <div key ={index}>
                                 <div className="grid grid-cols-4 items-center justify-center mt-4">
                                     <ul className="list-disc col-span-3 flex items-center justify-start">
@@ -312,10 +312,10 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                     <div  className="font-semibold text-md col-span-1">{projects?.duration}</div>
                                 </div>
                                 <div>
-                                    <div className="inline text-md font-semibold">TECHNOLOGIES USED : </div><div dangerouslySetInnerHTML={{__html:projects?.technologies}} className="inline"/>  
+                                    <div className="inline text-md font-semibold">TECHNOLOGIES USED : </div><div dangerouslySetInnerHTML={{__html:projects?.technologies ?? ""}} className="inline"/>  
                                 </div>
                                 <div>
-                                <div className="inline text-md font-semibold">DESCRIPTION : </div><div dangerouslySetInnerHTML={{__html:projects?.description}} className="inline"/>  
+                                <div className="inline text-md font-semibold">DESCRIPTION : </div><div dangerouslySetInnerHTML={{__html:projects?.description ?? ""}} className="inline"/>  
                                 </div>
                             </div>
                         ))}
@@ -330,14 +330,14 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
 
                         <div>
                             <div className="mb-4">
-                                <div className="font-semibold">EDUCATION : </div>{resumeInfo.education.map((education,index)=>(
+                                <div className="font-semibold">EDUCATION : </div>{resumeInfo.education?.map((education,index)=>(
                                 <div key={index} className="inline">
                                      {education?.degree} in {education?.institute}, {education?.year}, {education?.degree} ,  
                                 </div>
                             ))}
                             </div>
                             <div className="mb-4">
-                                <div className="font-semibold">COMPUTER SKILLS : </div>{resumeInfo.skills.map((skills,index)=>(
+                                <div className="font-semibold">COMPUTER SKILLS : </div>{resumeInfo.skills?.map((skills,index)=>(
                                 <div key={index} className="inline">
                                     {skills?.list} ,
                                 </div>
@@ -347,13 +347,13 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             <div className="mb-4">
                                 <div className="font-semibold">COURSE WORK : </div>
                                 
-                                {resumeInfo.coursework.map((coursework,index)=>
+                                {resumeInfo.coursework?.map((coursework,index)=>
                                 (
                                 <div>
                                     <ul className="list-disc">
                                         <li key={index} className="font-semibold text-lg mt-2">{coursework?.title}</li>
                                     </ul>
-                                    <div dangerouslySetInnerHTML={{__html:coursework?.description}}/>           
+                                    <div dangerouslySetInnerHTML={{__html:coursework?.description ?? ""}}/>           
                                 </div>
                                 ))}
                             </div>
@@ -364,7 +364,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                 <span className="underline underline-offset-8 decoration-dashed decoration-black">ACADAMIC CREDENTIALS</span>
                             </div>
                             <div>
-                                <div className="font-semibold inline">AWARDS AND ACHIEVEMENTS :</div> {resumeInfo.awardsAndAchievements.map((awardsAndAchiements,index)=>(
+                                <div className="font-semibold inline">AWARDS AND ACHIEVEMENTS :</div> {resumeInfo.awardsAndAchievements?.map((awardsAndAchiements,index)=>(
                                 <div key={index} className="inline">
                                     {awardsAndAchiements?.title} , 
                                 </div>
@@ -407,7 +407,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                         <div className="table-cell font-semibold border border-collapse border-black">CGPA/MARKS</div>
                                     </div>
                                 </div>
-                            {resumeInfo.education.map((education,index)=>(
+                            {resumeInfo.education?.map((education,index)=>(
                                 <div className="table-row-group border border-collapse border-black ">
                                 <div className="table-row">
                                     <div key={index} className="table-cell border border-collapse border-black">{education?.year}</div>
@@ -427,11 +427,11 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             </div>
                         </div>
                     </div>
-                        {resumeInfo.skills.map((skills,index) =>
+                        {resumeInfo.skills?.map((skills,index) =>
                         (
                             <div className="">
                                 <div key={index} className="text-lg mt-2 inline">{skills?.category} : </div>
-                                <div dangerouslySetInnerHTML={{__html:skills?.list}} className="inline"/>           
+                                <div dangerouslySetInnerHTML={{__html:skills?.list ?? ""}} className="inline"/>           
                             </div>
                         ))}
                     {/* {ACHIEVEMENTS} */}
@@ -443,7 +443,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             </div>
                         </div>
                     </div>
-                        {resumeInfo.awardsAndAchievements.map((awardsAndAchievements,index)=>(
+                        {resumeInfo.awardsAndAchievements?.map((awardsAndAchievements,index)=>(
                             <div key={index}>
                                 <ul className="list-disc">
                                     <li>{awardsAndAchievements?.title} : {awardsAndAchievements?.description}</li>
@@ -461,7 +461,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             </div>
                         </div>
                     </div>
-                        {resumeInfo.experiences.map((experiences,index)=>(
+                        {resumeInfo.experiences?.map((experiences,index)=>(
                             <div key={index}>
                                 <ul className="list-disc">
                                 <div className="grid grid-cols-[400px,250px]">
@@ -482,7 +482,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                             </div>
                         </div>
                     </div>                        
-                    {resumeInfo.projects.map((projects,index)=>(
+                    {resumeInfo.projects?.map((projects,index)=>(
                             <div key={index}>
                                 <div className="grid grid-cols-[400px,250px]">
                                     <div className="font-semibold">{projects?.projectName}</div>
@@ -501,7 +501,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                 </div>
                             </div>
                         </div>                            
-                        {resumeInfo.extraCurricularActivities.map((eaa,index)=>(
+                        {resumeInfo.extraCurricularActivities?.map((eaa,index)=>(
                                 <div key={index}>
                                     <div className="font-semibold inline">{eaa?.activity} : </div>
                                     <div className="inline">{eaa?.description}</div>
@@ -517,11 +517,11 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                                 </div>
                             </div>
                         </div>                        
-                        {resumeInfo.coursework.map((coursework,index)=>
+                        {resumeInfo.coursework?.map((coursework,index)=>
                         (
                             <ul className="list-disc">
                                 <li key={index} className="font-semibold text-lg mt-2">{coursework?.title}</li>
-                                <div dangerouslySetInnerHTML={{__html:coursework?.description}}/>           
+                                <div dangerouslySetInnerHTML={{__html:coursework?.description ?? ""}}/>           
                             </ul>
                         ))}
                     </div>

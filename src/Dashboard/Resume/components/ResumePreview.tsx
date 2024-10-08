@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ResumeInfoContext } from "../../../context/ResumeInfoContext";
 import PersonalDetails from "./preview/PersonalDetails";
 import { useParams } from "react-router-dom";
+import { ResumeData } from "../../data/dummyData";
 
 
 
@@ -20,7 +21,7 @@ const ResumePreview : React.FC = () => {
     return ( 
        
         <div className="shadow-lg p-7 h-full mt-5">
-            <PersonalDetails resumeInfo={resumeInfo} resumeId={resumeId} /> 
+            <PersonalDetails resumeInfo={resumeInfo as ResumeData} resumeId={resumeId} /> 
         </div>
      );
 }

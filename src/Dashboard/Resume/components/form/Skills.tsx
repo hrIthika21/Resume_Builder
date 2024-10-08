@@ -10,9 +10,9 @@ interface SkillsProp{
 }
 
 interface SkillField {
-    id :number;
-    category : string;
-    list : string;
+    id? :number;
+    category?: string;
+    list? : string;
 }
 
 const skillField: SkillField = {
@@ -61,7 +61,7 @@ const Skills=({resumeId }: SkillsProp) => {
     },[skills])
 
     useEffect(()=>{
-        resumeInfo&&setSkills(resumeInfo?.skills)
+        resumeInfo&&setSkills(resumeInfo?.skills ?? [])
       },[])
 
     const AddNewSkill = ()=>{

@@ -9,7 +9,7 @@ export interface SummaryDetailProp{
 }
 
 export interface SummaryProp{
-    summary : string
+    summary? : string
 }
 
 const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
@@ -23,14 +23,14 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
     
     const { resumeInfo, setResumeInfo } = context;
 
-    const [summary,setSummary] = useState<SummaryProp | null>(null)
+    const [summary,setSummary] = useState<string>(resumeInfo?.summary || "")
 
     useEffect(()=>{
         summary&&setResumeInfo({
             ...resumeInfo,
-            summary: resumeInfo?.summary
+            summary: summary
         })
-    },[summary])
+    },[summary, resumeInfo, setResumeInfo])
 
     const onSave = (e : React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
@@ -38,9 +38,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
         try {
             const existingData = localStorage.getItem(`resume_${resumeId}`);
             const parsedData = existingData ? JSON.parse(existingData) : {};
-            const summaryData={    
-                  summary: summary
-              }
+            const summaryData={summary}
             const data = {
                 ...parsedData, 
                 ...summaryData,       
@@ -63,7 +61,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
                             <Textarea 
                             required  value={summary? resumeInfo?.summary : ""}
                             defaultValue={resumeInfo?.summary}
-                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary({summary: e.target.value})} 
+                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary(e.target.value)} 
                             name="summary"/>
                         </div>
                         <div className="mt-4 flex justify-end">
@@ -82,7 +80,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
                         <div>
                             <Textarea required  value={summary? resumeInfo?.summary : ""}
                             defaultValue={resumeInfo?.summary}
-                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary({summary: e.target.value})}  
+                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary(e.target.value)}  
                             name="summary"/>
                         </div>
                         <div className="mt-4 flex justify-end">
@@ -101,7 +99,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
                         <div>
                             <Textarea required  value={summary? resumeInfo?.summary : ""}
                             defaultValue={resumeInfo?.summary}
-                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary({summary: e.target.value})} 
+                            onChange={(e : React.ChangeEvent<HTMLTextAreaElement>)=>setSummary(e.target.value)} 
                             name="summary"/>
                         </div>
                         <div className="mt-4 flex justify-end">

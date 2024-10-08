@@ -10,9 +10,9 @@ interface EaaProp{
 }
 
 interface EaaField {
-    id : number;
-    activity : string;
-    description : string;
+    id? : number;
+    activity? : string;
+    description? : string;
 }
 
 const eaaField: EaaField = {
@@ -59,7 +59,7 @@ const Eaa = ({resumeId} : EaaProp) => {
     },[eaa])
 
     useEffect(()=>{
-        resumeInfo&&setEaa(resumeInfo?.extraCurricularActivities)
+        resumeInfo&&setEaa(resumeInfo?.extraCurricularActivities ?? [])
       },[])
 
     const AddNewEaa = ()=>{

@@ -9,11 +9,11 @@ export interface EducationProp{
 }
 
 interface EducationField {
-    id :number;
-    year: number;
-    degree: string;
-    institute: string;
-    cgpamarks: string;
+    id? :number;
+    year?: number;
+    degree?: string;
+    institute?: string;
+    cgpamarks?: string;
 }
 
 const educationField : EducationField = {
@@ -55,7 +55,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
     },[education])
 
     useEffect(()=>{
-        resumeInfo&&setEducation(resumeInfo?.education)
+        resumeInfo&&setEducation(resumeInfo?.education ?? [])
       },[])
 
     const AddNewEducation = ()=>{
