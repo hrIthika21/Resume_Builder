@@ -4,8 +4,8 @@ import { ResumeData } from "../Dashboard/data/dummyData";
 
 
 export interface ResumeInfoContextType {
-    resumeInfo: ResumeData; 
-    setResumeInfo: React.Dispatch<React.SetStateAction<ResumeData>>;
+    resumeInfo: ResumeData | null; 
+    setResumeInfo: React.Dispatch<React.SetStateAction<ResumeData | null>>;
 }
 
 export const ResumeInfoContext = createContext<ResumeInfoContextType | undefined>(undefined);
