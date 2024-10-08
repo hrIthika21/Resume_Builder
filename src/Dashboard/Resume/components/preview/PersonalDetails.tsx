@@ -262,7 +262,7 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                     <div className="table w-full mt-4">
                             <div className="table-row">
                                 <div className="table-cell relative text-sky-500 bg-slate-100 font-semibold mt-2 p-1 tracking-widest">
-                                    <span className="underline underline-offset-8 decoration-dashed decoration-black">CORE COMPETENsIES</span>
+                                    <span className="underline underline-offset-8 decoration-dashed decoration-black">CORE COMPETENSIES</span>
                                 </div>
                             </div>
                         </div>
@@ -382,38 +382,38 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                 <div>
                     {/* {PERSONAL DETAILS} */}
                     <div className="grid grid-rows-3 grid-cols-2 gap-x-12 items-center">
-                        <div className="text-3xl font-bold">{resumeInfo.firstname} {resumeInfo.lastname}</div>
-                        <div>Address : {resumeInfo.address}</div>
-                        <div>Date of Birth : {resumeInfo.dob}</div>
-                        <div>Email : {resumeInfo.email}</div>
-                        <div>{resumeInfo.department}</div>
-                        <div>Phone : {resumeInfo.contact}</div>
+                        <div className="sm:text-3xl text-xl font-bold md:text-[20px]">{resumeInfo.firstname} {resumeInfo.lastname}</div>
+                        <div className="sm:text-lg text-xs md:text-[16px]">Address : {resumeInfo.address}</div>
+                        <div className="sm:text-lg text-xs md:text-[16px]">Date of Birth : {resumeInfo.dob}</div>
+                        <div className="sm:text-lg text-xs md:text-[16px]">Email : {resumeInfo.email}</div>
+                        <div className="sm:text-lg text-xs md:text-[16px]">{resumeInfo.department}</div>
+                        <div className="sm:text-lg text-xs md:text-[16px]">Phone : {resumeInfo.contact}</div>
                     </div>
                     {/* {EDUCATION} */}
                     <div >
                         <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-4 flex-col" >
                                 <div className="table-header-group border border-collapse border-black">
                                     <div className="table-row">
-                                        <div className="text-lg mt-1 mb-1">EDUCATION</div>
+                                        <div className="sm:text-lg text-sm  mt-1 mb-1">EDUCATION</div>
                                     </div>
                                 </div>
                         </div>
                             <div className="table w-full border border-collapse border-black">
                                 <div className="table-header-group border border-collapse border-black">
                                     <div className="table-row">
-                                        <div className="table-cell font-semibold border border-collapse border-black">YEAR</div>
-                                        <div className="table-cell font-semibold border border-collapse border-black">DEGREE/CERTIFICATE</div>
-                                        <div className="table-cell font-semibold border border-collapse border-black">INSTITUTE</div>
-                                        <div className="table-cell font-semibold border border-collapse border-black">CGPA/MARKS</div>
+                                        <div className="table-cell font-semibold border border-collapse border-black sm:text-lg text-xs">YEAR</div>
+                                        <div className="table-cell font-semibold border border-collapse border-black sm:text-lg text-xs">DEGREE/CERTIFICATE</div>
+                                        <div className="table-cell font-semibold border border-collapse border-black sm:text-lg text-xs">INSTITUTE</div>
+                                        <div className="table-cell font-semibold border border-collapse border-black sm:text-lg text-xs">CGPA/MARKS</div>
                                     </div>
                                 </div>
                             {resumeInfo.education?.map((education,index)=>(
                                 <div className="table-row-group border border-collapse border-black ">
                                 <div className="table-row">
-                                    <div key={index} className="table-cell border border-collapse border-black">{education?.year}</div>
-                                    <div key={index} className="table-cell border border-collapse border-black">{education?.degree}</div>
-                                    <div key={index} className="table-cell border border-collapse border-black">{education?.institute}</div>
-                                    <div key={index} className="table-cell border border-collapse border-black">{education?.cgpamarks}</div>
+                                    <div key={index} className="table-cell border border-collapse border-black sm:text-lg text-xs">{education?.year}</div>
+                                    <div key={index} className="table-cell border border-collapse border-black sm:text-lg text-xs">{education?.degree}</div>
+                                    <div key={index} className="table-cell border border-collapse border-black sm:text-lg text-xs">{education?.institute}</div>
+                                    <div key={index} className="table-cell border border-collapse border-black sm:text-lg text-xs">{education?.cgpamarks}</div>
                                 </div>
                                 </div>
                             ))}
@@ -423,15 +423,15 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                     <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-6 flex-col">
                         <div className="table-header-group">
                             <div className="table-row">
-                                <div className="text-lg mt-1 mb-2">SKILLS AND EXPERTISE</div>
+                                <div className="sm:text-lg text-sm mt-1 mb-2">SKILLS AND EXPERTISE</div>
                             </div>
                         </div>
                     </div>
                         {resumeInfo.skills?.map((skills,index) =>
                         (
                             <div className="">
-                                <div key={index} className="text-lg mt-2 inline">{skills?.category} : </div>
-                                <div dangerouslySetInnerHTML={{__html:skills?.list ?? ""}} className="inline"/>           
+                                <div key={index} className="mt-2 inline sm:text-lg text-sm">{skills?.category} : </div>
+                                <div dangerouslySetInnerHTML={{__html:skills?.list ?? ""}} className="inline sm:text-lg text-xs"/>           
                             </div>
                         ))}
                     {/* {ACHIEVEMENTS} */}
@@ -439,12 +439,12 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                     <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-6 flex-col">
                         <div className="table-header-group">
                             <div className="table-row">
-                                <div className="text-lg mt-1 mb-2">ACHIEVEMENTS</div>
+                                <div className="sm:text-lg text-sm  mt-1 mb-2">ACHIEVEMENTS</div>
                             </div>
                         </div>
                     </div>
                         {resumeInfo.awardsAndAchievements?.map((awardsAndAchievements,index)=>(
-                            <div key={index}>
+                            <div key={index} className="sm:text-lg text-xs">
                                 <ul className="list-disc">
                                     <li>{awardsAndAchievements?.title} : {awardsAndAchievements?.description}</li>
                                 </ul>
@@ -457,18 +457,18 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                     <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-6 flex-col">
                         <div className="table-header-group">
                             <div className="table-row">
-                                <div className="text-lg mt-1 mb-2">INTERNSHIPS</div>
+                                <div className="sm:text-lg text-sm  mt-1 mb-2">INTERNSHIPS</div>
                             </div>
                         </div>
                     </div>
                         {resumeInfo.experiences?.map((experiences,index)=>(
                             <div key={index}>
                                 <ul className="list-disc">
-                                    <div className="grid grid-cols-[60vw_30vw]">
-                                        <div className="font-semibold">{experiences?.company}</div>
-                                        <div className="font-semibold place-self-end">{experiences?.duration}</div>
+                                    <div className="grid sm:grid-cols-[60vw_30vw] md:grid-cols-2">
+                                        <div className="font-semibold sm:text-lg text-xs">{experiences?.company}</div>
+                                        <div className="font-semibold place-self-end sm:text-lg text-xs">{experiences?.duration}</div>
                                     </div>
-                                <li>{experiences?.description}</li>
+                                <li className="sm:text-lg text-xs">{experiences?.description}</li>
                                 </ul>
                             </div>
                         ))}
@@ -478,17 +478,17 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                     <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-6 flex-col">
                         <div className="table-header-group">
                             <div className="table-row">
-                                <div className="text-lg mt-1 mb-2">PROJECTS</div>
+                                <div className="sm:text-lg text-sm  mt-1 mb-2">PROJECTS</div>
                             </div>
                         </div>
                     </div>                        
                     {resumeInfo.projects?.map((projects,index)=>(
                             <div key={index}>
-                                <div className="grid grid-cols-[60vw_20vw]">
-                                    <div className="font-semibold">{projects?.projectName}</div>
-                                    <div className="font-semibold place-self-end ml-3">{projects?.duration}</div>
+                                <div className="grid sm:grid-cols-[60vw_20vw] md:grid-cols-2">
+                                    <div className="font-semibold sm:text-lg text-sm">{projects?.projectName}</div>
+                                    <div className="font-semibold place-self-end ml-3 sm:text-lg text-xs">{projects?.duration}</div>
                                 </div>                            
-                                <ul className="list-disc"><li>{projects?.description}</li></ul>
+                                <ul className="list-disc sm:text-lg text-xs"><li>{projects?.description}</li></ul>
                             </div>
                         ))}
                     </div>
@@ -497,31 +497,31 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-6 flex-col">
                             <div className="table-header-group">
                                 <div className="table-row">
-                                    <div className="text-lg mt-1 mb-2">EXTRA CURRICULAR ACTIVITIES</div>
+                                    <div className="sm:text-lg text-sm  mt-1 mb-2">EXTRA CURRICULAR ACTIVITIES</div>
                                 </div>
                             </div>
                         </div>                            
                         {resumeInfo.extraCurricularActivities?.map((eaa,index)=>(
                                 <div key={index}>
-                                    <div className="font-semibold inline">{eaa?.activity} : </div>
-                                    <div className="inline">{eaa?.description}</div>
+                                    <div className="font-semibold inline sm:text-lg text-sm">{eaa?.activity} : </div>
+                                    <div className="inline sm:text-lg text-xs">{eaa?.description}</div>
                                 </div>
                         ))}
                         
                     </div>
                     {/* {Course Work} */}
-                        <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mb-4 mt-6 flex-col">
+                        <div className="col-span-4 table w-full border-t border-b border-black justify-center bg-gray-300 font-semibold mt-6 flex-col">
                             <div className="table-header-group">
                                 <div className="table-row">
-                                    <div className="text-lg mt-1 mb-2">COURSE WORK INFORMATION</div>
+                                    <div className="sm:text-lg text-sm mt-1 mb-2">COURSE WORK INFORMATION</div>
                                 </div>
                             </div>
                         </div>                        
                         {resumeInfo.coursework?.map((coursework,index)=>
                         (
                             <ul className="list-disc">
-                                <li key={index} className="font-semibold text-lg mt-2">{coursework?.title}</li>
-                                <div dangerouslySetInnerHTML={{__html:coursework?.description ?? ""}}/>           
+                                <li key={index} className="font-semibold mt-2 sm:text-lg text-sm">{coursework?.title}</li>
+                                <div dangerouslySetInnerHTML={{__html:coursework?.description ?? ""}} className="sm:text-lg text-xs"/>           
                             </ul>
                         ))}
                     </div>
