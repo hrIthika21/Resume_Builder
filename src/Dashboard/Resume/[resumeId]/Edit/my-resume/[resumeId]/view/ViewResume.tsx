@@ -51,7 +51,7 @@ const ViewResume: React.FC = () =>{
                             <RWebShare
                                 data={{
                                 text: "This is my resume, click on the given URL to view it",
-                                url: "http://localhost:5175/dashboard/resume/" + resumeId + "/Edit",
+                                url: "http://doneresume.netlify.app/dashboard/resume/" + resumeId + "/Edit",
                                 title: resumeInfo?.firstname +" "+ resumeInfo?.lastname,
                                 }}
                                 onClick={() => console.log("shared successfully!")}
@@ -73,7 +73,7 @@ const ViewResume: React.FC = () =>{
                             <RWebShare
                                 data={{
                                 text: "This is my resume, click on the given URL to view it",
-                                url: "http://localhost:5175/dashboard/resume/" + resumeId + "/Edit",
+                                url: "http://doneresume.netlify.app/dashboard/resume/" + resumeId + "/Edit",
                                 title: resumeInfo?.firstname +" "+ resumeInfo?.lastname,
                                 }}
                                 onClick={() => console.log("shared successfully!")}
@@ -95,7 +95,7 @@ const ViewResume: React.FC = () =>{
                             <RWebShare
                                 data={{
                                 text: "This is my resume, click on the given URL to view it",
-                                url: "http://localhost:5175/dashboard/resume/" + resumeId + "/Edit",
+                                url: "http://doneresume.netlify.app/dashboard/resume/" + resumeId + "/Edit",
                                 title: resumeInfo?.firstname +" "+ resumeInfo?.lastname,
                                 }}
                                 onClick={() => console.log("shared successfully!")}

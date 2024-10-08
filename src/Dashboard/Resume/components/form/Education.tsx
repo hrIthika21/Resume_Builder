@@ -91,7 +91,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
     switch(resumeId){
         case "1":
             return (
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">Education</h2>
                     <p className="font-thin text-md">Add your Educational details</p>
                     <div>
@@ -131,7 +131,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
               )
         case "2":
         return (
-            <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+            <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                 <h2 className="font-bold text-lg">Education</h2>
                 <p className="font-thin text-md">Add your Educational details</p>
                 <div>
@@ -171,7 +171,7 @@ const Education : React.FC<EducationProp>= ({resumeId}) =>{
             )
         case "3":
         return (
-            <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+            <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                 <h2 className="font-bold text-lg">Education</h2>
                 <p className="font-thin text-md">Add your Educational details</p>
                 <div>

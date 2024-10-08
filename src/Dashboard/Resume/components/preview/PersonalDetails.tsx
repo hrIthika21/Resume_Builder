@@ -217,24 +217,24 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         <div className="block font-semibold text-lg ">
                             {resumeInfo?.firstname} {resumeInfo?.lastname}
                         </div>
-                        <div className="table text-sm ">
+                        <div className="table text-sm mt-3">
                             <div className="table-header-group">
-                                <div className="table-row">
-                                    <div className="table-cell border-r-2 border-black">
-                                        <div className="flex flex-row items-center justify-end mx-2">
-                                            <FontAwesomeIcon icon={faPhone} />
+                                <div className="table-row ">
+                                    <div className="">
+                                        <div className="flex flex-row items-center justify-center mx-2">
+                                            <FontAwesomeIcon icon={faPhone} className="mr-1"/>
                                             <div className=" color text-cyan-600 text-xs">: {resumeInfo.contact}</div>
                                         </div>  
                                     </div>
-                                    <div className="table-cell border-r-2 border-black align-middle text-center">
+                                    <div className="  align-middle text-center">
                                         <div className="flex flex-row items-center justify-center  mx-2">
-                                            <FontAwesomeIcon icon={faEnvelope} />
+                                            <FontAwesomeIcon icon={faEnvelope} className="mr-1"/>
                                             <a className=" text-cyan-600 text-xs">: {resumeInfo.email}</a>
                                         </div>
                                     </div>
-                                    <div className="table-cell">
+                                    <div className="">
                                         <div className="flex flex-row items-center mx-2">
-                                            <FontAwesomeIcon icon={faLinkedin} />
+                                            <FontAwesomeIcon icon={faLinkedin}/>
                                             <a href={resumeInfo.linkedln} className="ml-1 text-cyan-600 text-xs">: {resumeInfo.linkedln}</a>
                                         </div>
                                     </div>
@@ -464,12 +464,12 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                         {resumeInfo.experiences?.map((experiences,index)=>(
                             <div key={index}>
                                 <ul className="list-disc">
-                                <div className="grid grid-cols-[400px,250px]">
-                                    <div className="font-semibold">{experiences?.company}</div>
-                                    <div className="font-semibold place-self-end">{experiences?.duration}</div>
-                                </div>
+                                    <div className="grid grid-cols-[60vw_30vw]">
+                                        <div className="font-semibold">{experiences?.company}</div>
+                                        <div className="font-semibold place-self-end">{experiences?.duration}</div>
+                                    </div>
                                 <li>{experiences?.description}</li>
-                            </ul>
+                                </ul>
                             </div>
                         ))}
                     </div>
@@ -484,9 +484,9 @@ const PersonalDetails : React.FC<PersonalDetailsProps> = ({resumeInfo,resumeId})
                     </div>                        
                     {resumeInfo.projects?.map((projects,index)=>(
                             <div key={index}>
-                                <div className="grid grid-cols-[400px,250px]">
+                                <div className="grid grid-cols-[60vw_20vw]">
                                     <div className="font-semibold">{projects?.projectName}</div>
-                                    <div className="font-semibold place-self-end">{projects?.duration}</div>
+                                    <div className="font-semibold place-self-end ml-3">{projects?.duration}</div>
                                 </div>                            
                                 <ul className="list-disc"><li>{projects?.description}</li></ul>
                             </div>

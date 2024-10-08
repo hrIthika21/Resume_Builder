@@ -99,7 +99,7 @@ const Experience= ({ resumeId }: ExperienceProps) => {
     switch(resumeId){
         case "1":
             return ( 
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">EXPERIENCE</h2>
                     <p className="font-thin text-md">Add your previous experiences</p>
                     <form onSubmit={onSave}>
@@ -128,7 +128,7 @@ const Experience= ({ resumeId }: ExperienceProps) => {
                                         </div>
                                         <div className="flex justify-between col-span-2">
                                             <div className="flex gap-2">
-                                                <Button variant='outline' onClick={AddNewExperience}> + Add More Experience</Button>
+                                                <Button variant='outline' onClick={AddNewExperience}> + Add Experience</Button>
                                                 <Button variant='outline' onClick={RemoveExperience}> - Remove</Button>
                                             </div>
                                             <Button >Save</Button>
@@ -144,8 +144,8 @@ const Experience= ({ resumeId }: ExperienceProps) => {
                 );
         case "2":
             return ( 
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
-                    <h2 className="font-bold text-lg">Experience</h2>
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
+                    <h2 className="font-bold text-lg">EXPERIENCE</h2>
                     <p className="font-thin text-md">Add your previous experiences</p>
                     <form onSubmit={onSave}>
                         <div>
@@ -169,7 +169,7 @@ const Experience= ({ resumeId }: ExperienceProps) => {
                                         </div>
                                         <div className="flex justify-between col-span-2">
                                             <div className="flex gap-2">
-                                                <Button variant='outline' onClick={AddNewExperience}> + Add More Experience</Button>
+                                                <Button variant='outline' onClick={AddNewExperience}> + Add Experience</Button>
                                                 <Button variant='outline' onClick={RemoveExperience}> - Remove</Button>
                                             </div>
                                             <Button >Save</Button>
@@ -184,7 +184,7 @@ const Experience= ({ resumeId }: ExperienceProps) => {
             );
             case "3":
                 return ( 
-                    <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                    <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                         <h2 className="font-bold text-lg">EXPERIENCE</h2>
                         <p className="font-thin text-md">Add your previous experiences</p>
                         <form onSubmit={onSave}>
@@ -213,7 +213,7 @@ const Experience= ({ resumeId }: ExperienceProps) => {
                                             </div>
                                             <div className="flex justify-between col-span-2">
                                                 <div className="flex gap-2">
-                                                    <Button variant='outline' onClick={AddNewExperience}> + Add More Experience</Button>
+                                                    <Button variant='outline' onClick={AddNewExperience}> + Add Experience</Button>
                                                     <Button variant='outline' onClick={RemoveExperience}> - Remove</Button>
                                                 </div>
                                                 <Button>Save</Button>

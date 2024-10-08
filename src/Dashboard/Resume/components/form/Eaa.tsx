@@ -93,7 +93,7 @@ const Eaa = ({resumeId} : EaaProp) => {
     switch(resumeId){
         case "1":
             return (
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">EXTRA CURRICULAR ACTIVITIES</h2>
                     <p className="font-thin text-md">WHAT ELSE WERE YOU ACTIVE IN</p>
                     <form onSubmit={onSave}>
@@ -117,7 +117,7 @@ const Eaa = ({resumeId} : EaaProp) => {
                                         </div>
                                         <div className="flex justify-between col-span-2">
                                             <div className="flex gap-2">
-                                                <Button variant='outline' onClick={AddNewEaa}> + Add Extra Activity</Button>
+                                                <Button variant='outline' onClick={AddNewEaa}> + Add Activity</Button>
                                                 <Button variant='outline' onClick={RemoveEaa}> - Remove</Button>
                                             </div>
                                             <Button>Save</Button>
@@ -133,7 +133,7 @@ const Eaa = ({resumeId} : EaaProp) => {
             )
             case "2":
                 return (
-                    <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                    <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                         <h2 className="font-bold text-lg">EXTRA CURRICULAR ACTIVITIES</h2>
                         <p className="font-thin text-md">WHAT ELSE WERE YOU ACTIVE IN</p>
                         <form onSubmit={onSave}>
@@ -157,7 +157,7 @@ const Eaa = ({resumeId} : EaaProp) => {
                                             </div>
                                             <div className="flex justify-between col-span-2">
                                                 <div className="flex gap-2">
-                                                    <Button variant='outline' onClick={AddNewEaa}> + Add Extra Activity</Button>
+                                                    <Button variant='outline' onClick={AddNewEaa}> + Add Activity</Button>
                                                     <Button variant='outline' onClick={RemoveEaa}> - Remove</Button>
                                                 </div>
                                                 <Button>Save</Button>                        
@@ -171,7 +171,7 @@ const Eaa = ({resumeId} : EaaProp) => {
                 )
                 case "3":
                     return (
-                        <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                        <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                             <h2 className="font-bold text-lg">EXTRA CURRICULAR ACTIVITIES</h2>
                             <p className="font-thin text-md">WHAT ELSE WERE YOU ACTIVE IN</p>
                             <form onSubmit={onSave}>
@@ -196,7 +196,7 @@ const Eaa = ({resumeId} : EaaProp) => {
                                                 </div>
                                                 <div className="flex justify-between col-span-2">
                                                     <div className="flex gap-2">
-                                                        <Button variant='outline' onClick={AddNewEaa}> + Add Extra Activity</Button>
+                                                        <Button variant='outline' onClick={AddNewEaa}> + Add Activity</Button>
                                                         <Button variant='outline' onClick={RemoveEaa}> - Remove</Button>
                                                     </div>
                                                     <Button>Save</Button>

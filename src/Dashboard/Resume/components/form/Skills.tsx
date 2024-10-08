@@ -95,7 +95,7 @@ const Skills=({resumeId }: SkillsProp) => {
     switch(resumeId){
         case "1":
             return (
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg uppercase">Skills</h2>
                     <p className="font-thin text-md">Add your Skills</p>
                     <form onSubmit={onSave}>
@@ -131,7 +131,7 @@ const Skills=({resumeId }: SkillsProp) => {
               )
         case "2" :
             return(
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">Skills</h2>
                     <p className="font-thin text-md">Add your Skills</p>
                     <form onSubmit={onSave}>
@@ -163,7 +163,7 @@ const Skills=({resumeId }: SkillsProp) => {
             )
         case "3":
             return (
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg uppercase">Skills</h2>
                     <p className="font-thin text-md">Add your Skills</p>
                     <form onSubmit={onSave}>

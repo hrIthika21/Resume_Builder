@@ -25,7 +25,7 @@ const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) =
         lastname: '',
         department: '',
         rollno: '',
-        img: "",
+        img: " ",
     })
 
     const handleInputChange = (e : React.ChangeEvent<HTMLInputElement>)=>{
@@ -90,7 +90,7 @@ const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) =
     switch(resumeId){
         case "1":
             return (
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">Personal Details</h2>
                     <p className="font-thin text-md">Provide basic information</p>
                     <form onSubmit={onSave} >
@@ -131,7 +131,7 @@ const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) =
 
         case "2":
             return (
-        <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+        <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
             <h2 className="font-bold text-lg">Personal Details</h2>
             <p className="font-thin text-md">Provide basic information</p>
             <form onSubmit={onSave}>
@@ -169,7 +169,7 @@ const PersonalDetail : React.FC<PersonalDetailProp> = ({resumeId,enabledNext}) =
       );
       case "3":
         return(
-        <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+        <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
             <h2 className="font-bold text-lg">Personal Details</h2>
             <p className="font-thin text-md">Provide basic information</p>
             <form onSubmit={onSave}>

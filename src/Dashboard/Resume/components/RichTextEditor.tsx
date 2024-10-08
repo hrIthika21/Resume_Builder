@@ -13,7 +13,6 @@ import {
     BtnStyles,
     BtnUnderline,
     BtnUndo,
-    HtmlButton,
     Separator,
     Toolbar,
     ContentEditableEvent
@@ -48,7 +47,6 @@ const RichTextEditor : React.FC<RichTextEditorProps>= ({onRichEditorChange})=>{
                     <Separator />
                     <BtnLink />
                     <BtnClearFormatting />
-                    <HtmlButton />
                     <Separator />
                     <BtnStyles />
                 </Toolbar>

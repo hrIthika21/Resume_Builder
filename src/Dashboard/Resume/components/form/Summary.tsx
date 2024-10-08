@@ -53,7 +53,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
     switch(resumeId){
         case "1":
             return(
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">Summary</h2>
                     <p className="font-thin text-md">Add Summary for your job title</p>
                     <form onSubmit={onSave}>
@@ -73,7 +73,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
             );
         case "2":
             return(
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg">Summary</h2>
                     <p className="font-thin text-md">Add Summary for your job title</p>
                     <form onSubmit={onSave}>
@@ -92,7 +92,7 @@ const Summary : React.FC<SummaryDetailProp>= ({resumeId,enabledNext}) => {
     );
         case "3":
             return(
-                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4">
+                <div className="p-5 shadow-lg rounded-lg border-t-4 border-teal-100 mt-10 ml-4 mr-4">
                     <h2 className="font-bold text-lg uppercase">Summary</h2>
                     <p className="font-thin text-md">Add Summary for your job title</p>
                     <form onSubmit={onSave}>
